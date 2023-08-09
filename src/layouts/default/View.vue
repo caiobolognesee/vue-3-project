@@ -1,9 +1,6 @@
 <template>
-  <v-main>
-    <router-view />
-  </v-main>
+  <div>VIEWWWWWWWWWWWWWWWW</div>
 </template>
 
 <script lang="ts" setup>
-//
 </script>
