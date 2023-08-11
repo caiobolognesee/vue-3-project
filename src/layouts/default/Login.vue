@@ -1,88 +1,63 @@
 <template>
-  <div>LOGINNNNNNNNNNNNNNNNNNNNNNNN</div>
-  <!-- <v-row class="vh-100 vw-100 row-login">
-    <v-col
-      sm="5"
-      class="d-flex justify-content-center align-items-center left-login"
+  <div class="login">
+    <v-card
+      class="card"
+      :elevation="15"
     >
-      <div class="col-8">
-        <h2 class="text-center mb-5 title-login">Faça o login</h2>
-
-        <v-form>
-          <v-form-group label="E-mail" label-for="email">
-            <v-form-input
-              id="email"
-              type="email"
-              placeholder="joaosilva@email.com"
-              autocomplete="off"
-              v-model="form.email"
-            ></v-form-input>
-          </v-form-group>
-
-          <v-form-group label-for="password">
-            <label class="d-flex justify-content-between">
-              Senha
-              <small><a href="#">Esqueceu sua senha?</a></small>
-            </label>
-
-            <v-form-input
-              id="password"
-              type="password"
-              placeholder="Digite sua senha"
-              v-model="form.password"
-            ></v-form-input>
-          </v-form-group>
-
-          <v-button type="button" variant="primary" block @click="login">
-            <i class="fas fa-sign-in-alt"></i> Entrar
-          </v-button>
-
-          <hr />
-
-          <v-button
-            type="button"
-            variant="outline-secondary"
-            block
-            @click="register"
-          >
-            <i class="fas fa-user-plus"></i> Não tenho conta
-          </v-button>
-        </v-form>
+    <v-card-item>
+      <div>
+        <h2 class="mt-1 mb-10 text-center">Faça o login</h2>
+        <v-text-field
+          v-model="form.email"
+          :rules="rules"
+          placeholder="johndoe@gmail.com"
+          label="Login"
+        />
+        <v-text-field
+          v-model="form.password"
+          type="password"
+          :rules="rules"
+          persistent-hint
+          placeholder="senha"
+          label="Senha"
+        />
       </div>
-    </v-col>
-  </v-row> -->
+    </v-card-item>
+
+    <v-card-actions class="card-actions">
+      <v-btn class="mb-3" variant="tonal" color="primary" @click="login"> Entrar</v-btn>
+      <v-btn class="mb-3" variant="tonal" color="outline-secondary" @click="register">Esqueceu sua senha?</v-btn>
+    </v-card-actions>
+  </v-card>
+  </div>
 </template>
 
 <script lang="ts">
-// import { required, minLength, email } from "@vuelidate/validators";
+export default {
+  data: () => ({
+      form: {
+      email: "",
+      password: "",
+    },
 
-// export default {
-//   data() {
-//     return {
-//       form: {
-//         email: "",
-//         password: "",
-//       },
-//     };
-//   },
-//   validations: {
-//     form: {
-//       email: {
-//         required,
-//         email,
-//       },
+    rules: [
+      (email: String) => {
+        if (email) return true
 
-//       password: {
-//         required,
-//         minLength: minLength(6),
-//       },
-//     },
-//   },
-//   methods: {
-//     login() {},
-//     register() {},
-//   },
-// };
+        return 'Digite o email!'
+      },
+      (password: String) => {
+        if (password) return true
+
+        return 'Digite a senha!'
+      },
+    ],
+  }),
+  methods: {
+    login() {},
+    register() {},
+  },
+}
 </script>
 
 <style>
@@ -94,21 +69,17 @@
   box-sizing: border-box;
   text-decoration: none;
 }
-
-.row-login {
-  margin-left: 0;
+.card {
+  margin: auto;
+  min-width: 100vh;
 }
-
-.left-login {
+.card-actions {
+  flex-direction: column;
+}
+.login {
   background-color: #f2f2f2;
-}
-
-.title-login {
-  font-weight: bold;
-}
-
-.img-login {
-  width: 600px;
-  height: 600px;
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 </style>
