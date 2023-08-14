@@ -8,15 +8,15 @@
       <div>
         <h2 class="mt-1 mb-10 text-center">Faça o login</h2>
         <v-text-field
-          v-model="form.email"
-          :rules="rules"
+          v-model="app.email"
+          :rules="app.rules"
           placeholder="johndoe@gmail.com"
           label="Login"
         />
         <v-text-field
-          v-model="form.password"
+          v-model="app.password"
           type="password"
-          :rules="rules"
+          :rules="app.rules"
           persistent-hint
           placeholder="senha"
           label="Senha"
@@ -26,38 +26,38 @@
 
     <v-card-actions class="card-actions">
       <v-btn class="mb-3" variant="tonal" color="primary" @click="login"> Entrar</v-btn>
-      <v-btn class="mb-3" variant="tonal" color="outline-secondary" @click="register">Esqueceu sua senha?</v-btn>
+      <!-- <v-btn class="mb-3" variant="tonal" color="outline-secondary" @click="register">Esqueceu sua senha?</v-btn> -->
     </v-card-actions>
   </v-card>
   </div>
 </template>
 
 <script lang="ts">
-export default {
-  data: () => ({
-      form: {
-      email: "",
-      password: "",
-    },
+import { defineComponent, ref } from 'vue'
+import { appStore } from '@/stores/app'
 
-    rules: [
-      (email: String) => {
-        if (email) return true
+export default defineComponent({
 
-        return 'Digite o email!'
-      },
-      (password: String) => {
-        if (password) return true
+  setup() {
+    const app = appStore()
 
-        return 'Digite a senha!'
-      },
-    ],
-  }),
-  methods: {
-    login() {},
-    register() {},
+    const itemName = ref('')
+
+    function login() {
+      if (app.email !== '') {
+
+      }
+    }
+
+    // @ts-ignore
+    window.stores = { app }
+
+    return {
+      login,
+      app
+    }
   },
-}
+})
 </script>
 
 <style>
