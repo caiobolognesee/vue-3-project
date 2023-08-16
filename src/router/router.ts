@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { appStore } from '@/stores/app'
+import { loginStore } from '@/stores/login'
 import routes from '@/router/routes'
 
 const router = createRouter({
@@ -9,10 +9,10 @@ const router = createRouter({
 
 router.beforeEach((to) => {
 
-  const app = appStore()
+  const app = loginStore()
 
   if (to.path !== '/login') {
-    if (app.user.email === '' || app.user.password === '') {
+    if (app.user !== 'caio' || app.password !== '123') {
       router.push('/login')
       return
     }

@@ -1,5 +1,5 @@
 <template>
-  <div>DASH</div>
+  <div>DASHBOARDDDDDDDDDDDDDDD</div>
 </template>
 
 <script lang="ts" setup>
