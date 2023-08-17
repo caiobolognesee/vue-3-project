@@ -26,7 +26,7 @@
     </v-card-item>
 
     <v-card-actions class="card-actions">
-      <v-btn class="mb-3" variant="tonal" color="primary" to="/home" @click="doLogin()"> Entrar</v-btn>
+      <v-btn class="mb-3" variant="tonal" color="primary" to="/home" @click="doLogin()">Entrar</v-btn>
       <v-alert v-if="login.canLogin" type="error" variant="outlined">{{ login.loginInvalidMessage }}</v-alert>
       <!-- <v-btn class="mb-3" variant="tonal" color="outline-secondary" @click="register">Esqueceu sua senha?</v-btn> -->
     </v-card-actions>
@@ -34,32 +34,22 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup>
 import { loginStore } from '@/stores/login'
 
-export default defineComponent({
-  setup() {
-    const login = loginStore()
+const login = loginStore()
 
-    function doLogin() {
-      login.canLogin = true
-      if (login.canLogin) {
-        if (login.user !== 'caio' || login.password !== '123') {
-          login.loginInvalidMessage = 'usúario ou senha inválidos'
-        }
-      }
+function doLogin() {
+  login.canLogin = true
+  if (login.canLogin) {
+    if (login.user !== 'caio' || login.password !== '123') {
+      login.loginInvalidMessage = 'usúario ou senha inválidos'
     }
+  }
+}
 
-    // @ts-ignore
-    window.stores = { login }
-
-    return {
-      login,
-      doLogin
-    }
-  },
-})
+// @ts-ignore
+window.stores = { login }
 </script>
 
 <style>

@@ -24,30 +24,19 @@
     </v-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup>
 import { loginStore } from '@/stores/login'
 
-export default defineComponent({
+const login = loginStore()
 
-  setup() {
-    const login = loginStore()
+function logout() {
+  login.canLogin = false
+  login.user = ''
+  login.password = ''
+}
 
-    function logout() {
-      login.canLogin = false
-      login.user = ''
-      login.password = ''
-    }
-
-    // @ts-ignore
-    window.stores = { login }
-
-    return {
-      logout,
-      login
-    }
-  },
-})
+// @ts-ignore
+window.stores = { login }
 </script>
 
 <style scoped>
