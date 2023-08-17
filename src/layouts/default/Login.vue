@@ -8,16 +8,17 @@
       <div>
         <h2 class="mt-1 mb-10 text-center">Faça o login</h2>
         <v-text-field
-          v-model="form.email"
-          :rules="rules"
+          v-model="login.user"
+          :rules="login.rules"
+          persistent-hint
           placeholder="johndoe@gmail.com"
           label="Login"
         />
         <v-text-field
-          v-model="form.password"
-          type="password"
-          :rules="rules"
+          v-model="login.password"
+          :rules="login.rules"
           persistent-hint
+          type="password"
           placeholder="senha"
           label="Senha"
         />
@@ -25,39 +26,40 @@
     </v-card-item>
 
     <v-card-actions class="card-actions">
-      <v-btn class="mb-3" variant="tonal" color="primary" @click="login"> Entrar</v-btn>
-      <v-btn class="mb-3" variant="tonal" color="outline-secondary" @click="register">Esqueceu sua senha?</v-btn>
+      <v-btn class="mb-3" variant="tonal" color="primary" to="/home" @click="doLogin()"> Entrar</v-btn>
+      <v-alert v-if="login.canLogin" type="error" variant="outlined">{{ login.loginInvalidMessage }}</v-alert>
+      <!-- <v-btn class="mb-3" variant="tonal" color="outline-secondary" @click="register">Esqueceu sua senha?</v-btn> -->
     </v-card-actions>
   </v-card>
   </div>
 </template>
 
 <script lang="ts">
-export default {
-  data: () => ({
-      form: {
-      email: "",
-      password: "",
-    },
+import { defineComponent } from 'vue'
+import { loginStore } from '@/stores/login'
 
-    rules: [
-      (email: String) => {
-        if (email) return true
+export default defineComponent({
+  setup() {
+    const login = loginStore()
 
-        return 'Digite o email!'
-      },
-      (password: String) => {
-        if (password) return true
+    function doLogin() {
+      login.canLogin = true
+      if (login.canLogin) {
+        if (login.user !== 'caio' || login.password !== '123') {
+          login.loginInvalidMessage = 'usúario ou senha inválidos'
+        }
+      }
+    }
 
-        return 'Digite a senha!'
-      },
-    ],
-  }),
-  methods: {
-    login() {},
-    register() {},
+    // @ts-ignore
+    window.stores = { login }
+
+    return {
+      login,
+      doLogin
+    }
   },
-}
+})
 </script>
 
 <style>
