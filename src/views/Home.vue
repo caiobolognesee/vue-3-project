@@ -1,9 +1,11 @@
 <template>
-  <home-card-vue
-    :title="title"
-    :buttonTitle="buttonTitle"
-    :text="text"
+  <div>
+    <home-card-vue
+      :title="title"
+      :buttonTitle="buttonTitle"
+      :text="text"
     />
+  </div>
 </template>
 
 <script setup>
