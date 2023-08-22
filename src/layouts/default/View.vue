@@ -12,6 +12,7 @@
         <v-list density="compact" nav>
           <v-list-item prepend-icon="mdi-home" title="Home" to="/home" />
           <v-list-item prepend-icon="mdi-widgets" title="Dashboard" to="/dashboard" />
+          <v-list-item prepend-icon="mdi-gas-station" title="Spending Average" to="/spendingAverage" />
         </v-list>
         <template v-slot:append>
               <v-list-item prepend-icon="mdi-logout" title="Sair" to="/login" @click="logout()"/>

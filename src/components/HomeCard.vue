@@ -7,7 +7,7 @@
         :title="title"
         :text="text"
       >
-      <v-btn>{{ buttonTitle }}</v-btn>
+      <v-btn :to="buttonToPage">{{ buttonTitle }}</v-btn>
     </v-card>
   </div>
 </template>
@@ -23,6 +23,10 @@ const props = defineProps({
     required: true
   },
   text: {
+    type: String,
+    required: true
+  },
+  buttonToPage: {
     type: String,
     required: true
   },
