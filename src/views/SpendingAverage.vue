@@ -1,36 +1,50 @@
 <template>
-  <v-sheet width="300" class="mx-auto">
-    <v-form fast-fail @submit.prevent>
+  <v-sheet width="350" class="mx-auto bg-deep-purple pa-12">
+    <v-form class="mt-15" fast-fail @submit.prevent>
       <v-text-field
         v-model="spendingAverage.liters"
         label="Litros gastos"
-        :rules="litersRules"
+        :rules="spendingAverage.rules"
+        variant="outlined"
       />
 
       <v-text-field
         v-model="spendingAverage.kilometers"
         label="Quilometros percorridos"
-        :rules="kilometersRules"
+        :rules="spendingAverage.rules"
+        variant="outlined"
       />
 
-      <v-btn type="submit" block class="mt-2" @click="calculate()">Calcular</v-btn>
+      <v-btn
+        type="submit"
+        block
+        @click="spendingAverage.calculate(spendingAverage.liters, spendingAverage.kilometers)"
+      >
+        Calcular
+      </v-btn>
 
-       <v-text-field
-        v-model="spendingAverage.kilometersPerLiter"
+      <v-text-field
+        class="mt-5"
+        v-model="spendingAverage.getKilometersPerLiter"
         label="Quilometros percorridos"
+        variant="outlined"
       />
+       <v-input
+      :success-messages="['Success']"
+      success
+      disabled
+    >
+      Input
+    </v-input>
     </v-form>
   </v-sheet>
 </template>
 
 <script setup>
 import { spendingAverageStore } from '@/stores/spendingAverage'
+import { computed } from 'vue'
 
 const spendingAverage = spendingAverageStore()
-
-function calculate() {
-  spendingAverage.calculate()
-}
 
 // @ts-ignore
 window.stores = { spendingAverage }

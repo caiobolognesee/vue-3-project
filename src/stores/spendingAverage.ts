@@ -4,23 +4,28 @@ export const spendingAverageStore = defineStore('spendingAverage', {
   state: () => ({
     liters: null,
     kilometers: null,
-    kilometersPerLiter: null,
+    kilometersPerLiter: null as any,
     rules: [
-      (liters: String) => {
+      (liters: number) => {
         if (liters) return true
 
         return 'Insira quantos litros foram gastos!'
       },
-      (kilometers: String) => {
+      (kilometers: number) => {
         if (kilometers) return true
 
         return 'Insira quantos quilometros foram percorridos!'
       },
     ],
   }),
+  getters: {
+    getKilometersPerLiter: (state): number => {
+      return state.kilometersPerLiter
+    },
+  },
   actions: {
-    calculate(kilometers: number, liters: number, kilometersPerLiter: number) {
-      kilometersPerLiter = kilometers/liters
+    calculate(kilometers: number, liters: number) {
+      this.kilometersPerLiter = kilometers / liters
     }
   }
 })
