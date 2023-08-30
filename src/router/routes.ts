@@ -13,6 +13,11 @@ export default [
         name: 'Dashboard',
         component: () => import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard.vue'),
       },
+      {
+        path: 'spendingAverage',
+        name: 'SpendingAverage',
+        component: () => import(/* webpackChunkName: "SpendingAverage" */ '@/views/SpendingAverage.vue'),
+      },
     ],
   },
   {

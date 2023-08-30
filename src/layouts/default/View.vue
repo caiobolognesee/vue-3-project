@@ -1,5 +1,5 @@
 <template>
-    <v-layout class="rounded rounded-md">
+    <v-layout class="rounded rounded-md backgroud-color-blue">
       <v-app-bar title="Caio Bolognese" :elevation="1" rounded>
         <template v-slot:append>
           <v-btn icon="mdi-linkedin" target="_blank" href="https://www.linkedin.com/in/caio-bolognese-43a41613b/" />
@@ -12,6 +12,7 @@
         <v-list density="compact" nav>
           <v-list-item prepend-icon="mdi-home" title="Home" to="/home" />
           <v-list-item prepend-icon="mdi-widgets" title="Dashboard" to="/dashboard" />
+          <v-list-item prepend-icon="mdi-gas-station" title="Spending Average" to="/spendingAverage" />
         </v-list>
         <template v-slot:append>
               <v-list-item prepend-icon="mdi-logout" title="Sair" to="/login" @click="logout()"/>
@@ -24,30 +25,19 @@
     </v-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup>
 import { loginStore } from '@/stores/login'
 
-export default defineComponent({
+const login = loginStore()
 
-  setup() {
-    const login = loginStore()
+function logout() {
+  login.canLogin = false
+  login.user = ''
+  login.password = ''
+}
 
-    function logout() {
-      login.canLogin = false
-      login.user = ''
-      login.password = ''
-    }
-
-    // @ts-ignore
-    window.stores = { login }
-
-    return {
-      logout,
-      login
-    }
-  },
-})
+// @ts-ignore
+window.stores = { login }
 </script>
 
 <style scoped>
