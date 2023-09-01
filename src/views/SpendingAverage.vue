@@ -2,16 +2,18 @@
   <v-sheet width="350" class="mx-auto bg-deep-purple pa-12">
     <v-form class="mt-15" fast-fail @submit.prevent>
       <v-text-field
-        v-model="spendingAverage.liters"
-        label="Litros gastos"
         :rules="spendingAverage.rules"
+        v-model="spendingAverage.kilometers"
+        label="Quilometros percorridos"
+        type="number"
         variant="outlined"
       />
 
       <v-text-field
-        v-model="spendingAverage.kilometers"
-        label="Quilometros percorridos"
         :rules="spendingAverage.rules"
+        v-model="spendingAverage.liters"
+        label="Litros gastos"
+        type="number"
         variant="outlined"
       />
 
@@ -24,18 +26,12 @@
       </v-btn>
 
       <v-text-field
-        class="mt-5"
         v-model="spendingAverage.getKilometersPerLiter"
+        readonly
+        class="mt-5"
         label="Quilometros percorridos"
         variant="outlined"
       />
-       <v-input
-      :success-messages="['Success']"
-      success
-      disabled
-    >
-      Input
-    </v-input>
     </v-form>
   </v-sheet>
 </template>
@@ -43,8 +39,25 @@
 <script setup>
 import { spendingAverageStore } from '@/stores/spendingAverage'
 import { computed } from 'vue'
+import { registerModule as registerSpendingAverageStore, unregisterModule as unregisterSpendingAverageStore } from '@/stores/spendingAverage'
 
 const spendingAverage = spendingAverageStore()
+
+function created() {
+  this.registerStores()
+}
+
+function destroyed() {
+  this.unregisterStores()
+}
+
+function registerStores() {
+  registerSpendingAverageStore(this.$store)
+}
+
+function unregisterStores() {
+  unregisterSpendingAverageStore(this.$store)
+}
 
 // @ts-ignore
 window.stores = { spendingAverage }
