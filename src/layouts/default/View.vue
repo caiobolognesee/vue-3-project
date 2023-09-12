@@ -1,6 +1,6 @@
 <template>
-    <v-layout class="rounded rounded-md backgroud-color-blue">
-      <v-app-bar title="Caio Bolognese" :elevation="1" rounded>
+    <v-layout>
+      <v-app-bar color="grey" title="Caio Bolognese" :elevation="1" rounded>
         <template v-slot:append>
           <v-btn icon="mdi-linkedin" target="_blank" href="https://www.linkedin.com/in/caio-bolognese-43a41613b/" />
           <v-btn icon="mdi-instagram" target="_blank" href="https://instagram.com/caio.bolognese?igshid=MjEwN2lyYWYwYw==" />
@@ -43,5 +43,8 @@ window.stores = { login }
 <style scoped>
 .logout{
   align-content: center;
+}
+.background-navbar {
+  background-color:darkgray
 }
 </style>
