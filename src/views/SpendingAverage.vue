@@ -37,27 +37,9 @@
 </template>
 
 <script setup>
-import { spendingAverageStore } from '@/stores/spendingAverage'
-import { computed } from 'vue'
-import { registerModule as registerSpendingAverageStore, unregisterModule as unregisterSpendingAverageStore } from '@/stores/spendingAverage'
+import { spendingAverageStore } from '@/store/spendingAverage'
 
-const spendingAverage = spendingAverageStore()
-
-function created() {
-  this.registerStores()
-}
-
-function destroyed() {
-  this.unregisterStores()
-}
-
-function registerStores() {
-  registerSpendingAverageStore(this.$store)
-}
-
-function unregisterStores() {
-  unregisterSpendingAverageStore(this.$store)
-}
+const spendingAverage = spendingAverageStore();
 
 // @ts-ignore
 window.stores = { spendingAverage }

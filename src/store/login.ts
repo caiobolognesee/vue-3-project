@@ -18,5 +18,5 @@ export const loginStore = defineStore('login', {
         return 'Digite a senha!'
       },
     ],
-  }),
+  })
 })

@@ -35,9 +35,10 @@
 </template>
 
 <script setup>
-import { loginStore } from '@/stores/login'
+import { loginStore } from '@/store/login'
 
-const login = loginStore()
+const login = loginStore();
+
 
 function doLogin() {
   login.canLogin = true

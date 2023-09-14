@@ -26,18 +26,6 @@
 </template>
 
 <script setup>
-import { loginStore } from '@/stores/login'
-
-const login = loginStore()
-
-function logout() {
-  login.canLogin = false
-  login.user = ''
-  login.password = ''
-}
-
-// @ts-ignore
-window.stores = { login }
 </script>
 
 <style scoped>

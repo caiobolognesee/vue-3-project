@@ -24,19 +24,19 @@ const cards = [
     title: 'Média de KM/L',
     text: 'Acesse esse módulo para fazer o calculo de gasto médio de quilometros por litro do seu automóvel!',
     buttonTitle: 'Acessar',
-    buttonToPage: '/spendingAverage'
+    buttonToPage: '/home'
   },
   {
     title: 'Média de KM/L',
     text: 'Acesse esse módulo para fazer o calculo de gasto médio de quilometros por litro do seu automóvel!',
     buttonTitle: 'Acessar',
-    buttonToPage: '/spendingAverage'
+    buttonToPage: '/dashboard'
   },
   {
     title: 'Média de KM/L',
     text: 'Acesse esse módulo para fazer o calculo de gasto médio de quilometros por litro do seu automóvel!',
     buttonTitle: 'Acessar',
-    buttonToPage: '/spendingAverage'
+    buttonToPage: '/login'
   }
 ]
 
