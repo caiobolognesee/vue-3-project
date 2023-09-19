@@ -7,7 +7,7 @@
         :title="title"
         :text="text"
       >
-      <v-btn :to="buttonToPage">{{ buttonTitle }}</v-btn>
+      <v-btn color="grey" :to="buttonToPage">{{ buttonTitle }}</v-btn>
     </v-card>
   </div>
 </template>
@@ -36,5 +36,6 @@ const props = defineProps({
 <style scoped>
 .card {
   text-align: center;
+  background-color: grey;
 }
 </style>

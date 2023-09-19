@@ -1,6 +1,6 @@
 <template>
-    <v-layout class="rounded rounded-md backgroud-color-blue">
-      <v-app-bar title="Caio Bolognese" :elevation="1" rounded>
+    <v-layout>
+      <v-app-bar color="grey" title="Caio Bolognese" :elevation="1" rounded>
         <template v-slot:append>
           <v-btn icon="mdi-linkedin" target="_blank" href="https://www.linkedin.com/in/caio-bolognese-43a41613b/" />
           <v-btn icon="mdi-instagram" target="_blank" href="https://instagram.com/caio.bolognese?igshid=MjEwN2lyYWYwYw==" />
@@ -11,7 +11,7 @@
       <v-navigation-drawer expand-on-hover :elevation="5" rail>
         <v-list density="compact" nav>
           <v-list-item prepend-icon="mdi-home" title="Home" to="/home" />
-          <v-list-item prepend-icon="mdi-widgets" title="Dashboard" to="/dashboard" />
+          <!-- <v-list-item prepend-icon="mdi-widgets" title="Dashboard" to="/dashboard" /> -->
           <v-list-item prepend-icon="mdi-gas-station" title="Spending Average" to="/spendingAverage" />
         </v-list>
         <template v-slot:append>
@@ -26,22 +26,13 @@
 </template>
 
 <script setup>
-import { loginStore } from '@/stores/login'
-
-const login = loginStore()
-
-function logout() {
-  login.canLogin = false
-  login.user = ''
-  login.password = ''
-}
-
-// @ts-ignore
-window.stores = { login }
 </script>
 
 <style scoped>
 .logout{
   align-content: center;
+}
+.background-navbar {
+  background-color:darkgray
 }
 </style>
