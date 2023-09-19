@@ -20,24 +20,24 @@ const cards = [
     buttonTitle: 'Acessar',
     buttonToPage: '/spendingAverage'
   },
-  {
-    title: 'Média de KM/L',
-    text: 'Acesse esse módulo para fazer o calculo de gasto médio de quilometros por litro do seu automóvel!',
-    buttonTitle: 'Acessar',
-    buttonToPage: '/home'
-  },
-  {
-    title: 'Média de KM/L',
-    text: 'Acesse esse módulo para fazer o calculo de gasto médio de quilometros por litro do seu automóvel!',
-    buttonTitle: 'Acessar',
-    buttonToPage: '/dashboard'
-  },
-  {
-    title: 'Média de KM/L',
-    text: 'Acesse esse módulo para fazer o calculo de gasto médio de quilometros por litro do seu automóvel!',
-    buttonTitle: 'Acessar',
-    buttonToPage: '/login'
-  }
+  // {
+  //   title: 'Média de KM/L',
+  //   text: 'Acesse esse módulo para fazer o calculo de gasto médio de quilometros por litro do seu automóvel!',
+  //   buttonTitle: 'Acessar',
+  //   buttonToPage: '/home'
+  // },
+  // {
+  //   title: 'Média de KM/L',
+  //   text: 'Acesse esse módulo para fazer o calculo de gasto médio de quilometros por litro do seu automóvel!',
+  //   buttonTitle: 'Acessar',
+  //   buttonToPage: '/dashboard'
+  // },
+  // {
+  //   title: 'Média de KM/L',
+  //   text: 'Acesse esse módulo para fazer o calculo de gasto médio de quilometros por litro do seu automóvel!',
+  //   buttonTitle: 'Acessar',
+  //   buttonToPage: '/login'
+  // }
 ]
 
 </script>

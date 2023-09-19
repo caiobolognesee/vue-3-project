@@ -11,7 +11,7 @@
       <v-navigation-drawer expand-on-hover :elevation="5" rail>
         <v-list density="compact" nav>
           <v-list-item prepend-icon="mdi-home" title="Home" to="/home" />
-          <v-list-item prepend-icon="mdi-widgets" title="Dashboard" to="/dashboard" />
+          <!-- <v-list-item prepend-icon="mdi-widgets" title="Dashboard" to="/dashboard" /> -->
           <v-list-item prepend-icon="mdi-gas-station" title="Spending Average" to="/spendingAverage" />
         </v-list>
         <template v-slot:append>

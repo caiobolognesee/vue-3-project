@@ -5,18 +5,6 @@ export const loginStore = defineStore('login', {
     user: '',
     password: '',
     canLogin: false,
-    loginInvalidMessage: '',
-    rules: [
-      (email: String) => {
-        if (email) return true
-
-        return 'Digite o email!'
-      },
-      (password: String) => {
-        if (password) return true
-
-        return 'Digite a senha!'
-      },
-    ],
+    loginInvalidMessage: ''
   })
 })
