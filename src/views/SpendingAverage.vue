@@ -48,7 +48,6 @@
 
 <script setup>
 import { spendingAverageStore } from '@/store/spendingAverage'
-import { computed } from 'vue';
 
 const spendingAverage = spendingAverageStore();
 
