@@ -7,6 +7,12 @@
       <v-card-item>
         <div>
           <h2 class="mt-1 mb-10 text-center">Faça o login</h2>
+          <div class="login-image">
+            <v-img
+            aspect-ratio="16/9"
+            src="../../../public/favicon.ico"
+            />
+          </div>
           <v-text-field
             v-model="login.user"
             :rules="[rules.user]"
@@ -83,9 +89,13 @@ window.stores = { login }
   flex-direction: column;
 }
 .login {
-  background-color: #f2f2f2;
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: auto;
+}
+.login-image {
+  display: flex;
+  height: 250px;
+  margin: -40px 0 -80px 0;
 }
 </style>

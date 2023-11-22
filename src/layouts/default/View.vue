@@ -22,7 +22,7 @@
         <v-list-item prepend-icon="mdi-gas-station" title="Spending Average" to="/spendingAverage" />
       </v-list>
       <template v-slot:append>
-        <v-list-item prepend-icon="mdi-logout" title="Sair" to="/login" @click="logout()" />
+        <v-list-item prepend-icon="mdi-logout" title="Sair" to="/login" @click="showUserMenu()" />
       </template>
     </v-navigation-drawer>
 
@@ -32,15 +32,25 @@
   </v-layout>
 </template>
 
-<script setup>
+<script lang="ts">
 import UserAccountVue from "@/components/UserAccount.vue"
+import { defineComponent } from 'vue'
 
-let account = false
-
-function showUserMenu() {
-  console.log('1', account)
-  account = !account
-}
+export default defineComponent({
+  component: [
+    UserAccountVue
+  ],
+  data() {
+    return {
+      account: false,
+    }
+  },
+  methods: {
+    showUserMenu() {
+      this.account = !this.account
+    }
+  }
+})
 </script>
 
 <style scoped>
