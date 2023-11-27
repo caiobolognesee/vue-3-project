@@ -1,27 +1,41 @@
-import { defineStore } from 'pinia'
+import { createStore } from 'vuex';
 
-export const dashboardStore = defineStore('dashboard', {
-  state: () => ({
-    dashboard: '',
-    rules: [
-      (email: String) => {
-        if (email) return true
+export const store = createStore({})
 
-        return 'Digite o email!'
-      },
-    ],
-  }),
+// import { createStore, Store, useStore as vuexUseStore } from 'vuex';
+// import { InjectionKey } from 'vue';
 
-  getters: {
-    user(state) {
-      let dashboard = state.dashboard
-      return { dashboard }
-    },
-  },
+// interface State {
+// }
 
-  actions: {
-    saveDashboard(dashboard: string) {
-      this.dashboard = dashboard
-    },
-  }
-})
+// export const key: InjectionKey<Store<State>> = Symbol()
+
+// export const store = createStore<State>({
+//   state: () => ({
+//     dashboard: '',
+//     rules: [
+//       (email: String) => {
+//         if (email) return true
+
+//         return 'Digite o email!'
+//       },
+//     ],
+//   }),
+
+//   getters: {
+//     user(state) {
+//       let dashboard = state.dashboard
+//       return { dashboard }
+//     },
+//   },
+
+//   actions: {
+//     saveDashboard(dashboard: string) {
+//       this.dashboard = dashboard
+//     },
+//   }
+// })
+
+// export function useStore(): Store<State> {
+//   return vuexUseStore(key)
+// }

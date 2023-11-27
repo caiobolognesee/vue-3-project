@@ -46,16 +46,15 @@
   </v-sheet>
 </template>
 
-<script setup>
-import { spendingAverageStore } from '@/store/spendingAverage'
+<script lang="ts">
+import { defineComponent } from 'vue'
 
-const spendingAverage = spendingAverageStore();
-
-const rules = {
-  kilometers: value => !!value || 'Insira quantos quilometros foram percorridos!',
-  liters: value => !!value || 'Insira quantos litros foram gastos!'
-}
-
-// @ts-ignore
-window.stores = { spendingAverage }
+export default defineComponent({
+  data() {
+    return {
+    }
+  },
+  methods: {
+  }
+})
 </script>

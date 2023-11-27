@@ -10,18 +10,16 @@
           <div class="login-image">
             <v-img
             aspect-ratio="16/9"
-            src="../../../public/favicon.ico"
+            src="../../assets/logo.png"
             />
           </div>
           <v-text-field
             v-model="login.user"
-            :rules="[rules.user]"
             placeholder="johndoe@gmail.com"
             label="Login"
           />
           <v-text-field
             v-model="login.password"
-            :rules="[rules.password]"
             type="password"
             placeholder="senha"
             label="Senha"
@@ -41,35 +39,47 @@
         </v-btn>
 
         <v-alert
-          v-if="login.loginInvalidMessage !== ''"
+          v-if="loginInvalidMessage !== ''"
           type="error"
           variant="outlined"
         >
-          {{ login.loginInvalidMessage }}
+          {{ loginInvalidMessage }}
         </v-alert>
       </v-card-actions>
     </v-card>
   </div>
 </template>
 
-<script setup>
-import { loginStore } from '@/store/login'
+<script lang="ts">
+import { defineComponent } from 'vue';
+// import { mapGetters } from 'vuex'
 
-const login = loginStore();
+export default defineComponent({
+  name: 'Login',
+  data() {
+    return {
+      login: {
+        user: '',
+        password: '',
+      },
+      loginInvalidMessage: '',
+    }
+  },
+  // computed: {
+  //   ...mapGetters({
+  //     loginComputed: 'login/login'
+  //   })
+  // },
+  methods: {
+    doLogin() {
+      if (this.login.user !== 'caio' && this.login.password !== '123') {
+        this.loginInvalidMessage = 'Errooooooo'
+      }
+    },
 
-function doLogin() {
-  if (login.user !== 'caio' || login.password !== '123') {
-    login.loginInvalidMessage = 'usúario ou senha inválidos'
   }
-}
+})
 
-const rules = {
-  user: value => !!value || 'Digite seu login!',
-  password: value => !!value || 'Digite sua senha!'
-}
-
-// @ts-ignore
-window.stores = { login }
 </script>
 
 <style>

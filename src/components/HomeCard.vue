@@ -12,24 +12,29 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  title: {
-    type: String,
-    required: true
-  },
-  buttonTitle: {
-    type: String,
-    required: true
-  },
-  text: {
-    type: String,
-    required: true
-  },
-  buttonToPage: {
-    type: String,
-    required: true
-  },
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'HomeCard',
+  props: ({
+    title: {
+      type: String,
+      required: true
+    },
+    buttonTitle: {
+      type: String,
+      required: true
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    buttonToPage: {
+      type: String,
+      required: true
+    },
+  })
 })
 </script>
 

@@ -34,16 +34,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
+  name: 'UserAccount',
   props: {
     showUserMenu: {
-      type: Function as PropType<Function>,
+      type: Function,
       required: false,
     },
     showData: {
-      type: Boolean as PropType<Boolean>,
+      type: Boolean,
       default: false,
     },
   },
@@ -61,7 +62,6 @@ export default defineComponent({
   },
   methods: {
     showUserMenu() {
-      // Se necessário, você pode chamar a função showUserMenu aqui
       this.teste
     },
   },

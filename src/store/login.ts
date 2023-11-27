@@ -1,10 +1,8 @@
-import { defineStore } from 'pinia'
+import { createStore } from 'vuex';
 
-export const loginStore = defineStore('login', {
-  state: () => ({
+export const store = createStore({
+  state: {
     user: '',
-    password: '',
-    canLogin: false,
-    loginInvalidMessage: ''
-  })
+    password: ''
+  },
 })

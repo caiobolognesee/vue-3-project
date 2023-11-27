@@ -1,5 +1,3 @@
-import { createPinia } from 'pinia'
+import { createStore } from 'vuex';
 
-const pinia = createPinia()
-
-export { pinia }
+export const store = createStore({})
